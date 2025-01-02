@@ -14,14 +14,21 @@ CREATE TABLE Customer (
   (1254, 'Barkha Singh' , 'Dilbagh Nagar' , 'F' , 'Jalandhar' , 144002),
   (1255, 'Rohan Arora' , 'Ludhiana' , 'M' , 'Ludhiana' , 144002);
  
- 
-INSERT INTO Customer
-VALUES (1252, 'Ram Kumar3', 'Dilbagh Nagar', 'M', 'Jalandhar', NULL);
 
-CREATE TABLE Order_details (
-Order_id integer PRIMARY KEY,
-delivery_date DATE,
-cust_id INT,
+INSERT INTO Customer(id, name)
+VALUES (121, 'Bob')
+
+-- update
+UPDATE Customer SET Address='Mumbai', Gender='M' WHERE id=121;
+
+-- update multiple rows
+SET SQL_SAFE_UPDATES=0;
+UPDATE Customer SET Pincode=110077;
+UPDATE Customer SET Pincode=Pincode+1;
+
+-- delete
+DELETE FROM Customer WHERE id = 245;
+
 FOREIGN KEY (cust_id) references Customer(id)
 );
 
